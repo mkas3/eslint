@@ -48,7 +48,7 @@ export const eslint: EslintConfig = ({
   ...options
 // eslint-disable-next-line ts/promise-function-async
 }, ...configs) => {
-  const stylistic = typeof options.stylistic === 'boolean' ? stylisticConfig : (options.stylistic ?? false);
+  const stylistic = typeof options.stylistic === 'boolean' ? (options.stylistic ? stylisticConfig : false) : (options.stylistic ?? false);
 
   if (stylistic) {
     configs.unshift(stylisticUserConfig);
