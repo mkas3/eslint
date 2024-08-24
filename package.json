@@ -34,7 +34,8 @@
     "prepublishOnly": "pnpm build",
     "dev": "npx @eslint/config-inspector@latest --config eslint.config.ts",
     "format": "prettier --write \"*.js\"",
-    "prepare": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
     "@antfu/eslint-config": "^2.25.1",
@@ -57,9 +58,17 @@
   "devDependencies": {
     "lint-staged": "^15.2.9",
     "shx": "^0.3.4",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "^5.5.4"
   },
   "lint-staged": {
-    "*.ts": "eslint . --flag unstable_ts_config --config eslint.config.ts"
+    "*.{ts,tsx}": [
+      "eslint --no-error-on-unmatched-pattern --fix --flag unstable_ts_config --config eslint.config.ts",
+      "tsc --noEmit -p tsconfig.json"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpx lint-staged",
+    "preserveUnused": true
   }
 }
