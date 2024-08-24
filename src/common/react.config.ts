@@ -1,6 +1,6 @@
-import type { EslintUserConfig } from '../index.js';
+import type { ESLintUserConfig } from '../index.js';
 
-export const reactUserConfig: EslintUserConfig = {
+export const reactUserConfig: ESLintUserConfig = {
   files: ['**/*.?([cm])[jt]s?(x)'],
   name: 'mkas3/react',
   rules: {

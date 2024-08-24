@@ -1,7 +1,8 @@
-import type { EslintUserConfig } from '../index.js';
-import type { TailwindConfig } from '../tailwind/tailwind.type.js';
+import type { ESLintUserConfig } from '../index.js';
 
-import { tailwindPlugin, tailwindReadablePlugin } from '../tailwind/tailwind.plugin.js';
+import type { TailwindConfig } from './tailwind.type.js';
+
+import { tailwindPlugin, tailwindReadablePlugin } from './tailwind.plugin.js';
 
 export const tailwindConfig: TailwindConfig = {
   overrides: {
@@ -27,7 +28,7 @@ export const tailwindConfig: TailwindConfig = {
   }
 };
 
-export const getTailwindConfig = (config: TailwindConfig): EslintUserConfig => ({
+export const getTailwindConfig = (config: TailwindConfig): ESLintUserConfig => ({
   files: ['**/*.?([cm])[jt]s?(x)'],
   name: 'mkas3/tailwind',
   plugins: {

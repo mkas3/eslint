@@ -1,6 +1,6 @@
-import type { EslintUserConfig } from '../index.js';
+import type { ESLintUserConfig } from '../index.js';
 
-export const antfuUserConfig: EslintUserConfig = {
+export const antfuUserConfig: ESLintUserConfig = {
   name: 'mkas3/rewrite',
   rules: {
     'antfu/consistent-list-newline': 'error',

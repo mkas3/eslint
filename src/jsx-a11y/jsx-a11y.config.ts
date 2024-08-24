@@ -1,15 +1,14 @@
-import type { EslintUserConfig } from '../index.js';
+import type { ESLint } from 'eslint';
 
-import { ESLint } from 'eslint';
+import type { ESLintUserConfig } from '../index.js';
+
 // @ts-expect-error has no types
 import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 
-import Plugin = ESLint.Plugin;
-
-export const jsxA11yUserConfig: EslintUserConfig = {
+export const jsxA11yUserConfig: ESLintUserConfig = {
   name: 'mkas3/jsx-a11y',
   plugins: {
-    'jsx-a11y': pluginJsxA11y as Plugin
+    'jsx-a11y': pluginJsxA11y as ESLint.Plugin
   },
   // eslint-disable-next-line ts/no-unsafe-member-access,ts/no-unsafe-assignment
   rules: pluginJsxA11y.flatConfigs.recommended.rules

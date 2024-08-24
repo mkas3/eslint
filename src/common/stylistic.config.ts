@@ -1,6 +1,6 @@
 import type { OptionsOverrides, OptionsStylistic } from '@antfu/eslint-config';
 
-import type { EslintUserConfig } from '../index.js';
+import type { ESLintUserConfig } from '../index.js';
 
 export const stylisticConfig: OptionsOverrides & OptionsStylistic['stylistic'] = {
   indent: 2,
@@ -9,7 +9,7 @@ export const stylisticConfig: OptionsOverrides & OptionsStylistic['stylistic'] =
   semi: true
 };
 
-export const stylisticUserConfig: EslintUserConfig = {
+export const stylisticUserConfig: ESLintUserConfig = {
   name: 'mkas3/formatter',
   rules: {
     'curly': 'off',

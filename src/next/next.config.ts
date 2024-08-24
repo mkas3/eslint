@@ -1,15 +1,13 @@
 import type { OptionsOverrides } from '@antfu/eslint-config';
+import type { ESLint } from 'eslint';
 
-import type { EslintUserConfig } from '../index.js';
+import type { ESLintUserConfig } from '../index.js';
 
 import type { NextConfig } from './next.type.js';
 
 import { fixupConfigRules } from '@eslint/compat';
 // @ts-expect-error has no type
 import nextPlugin from '@next/eslint-plugin-next';
-import { ESLint } from 'eslint';
-
-import Plugin = ESLint.Plugin;
 
 export const nextConfig: OptionsOverrides = {
   overrides: {
@@ -25,11 +23,11 @@ export const nextConfig: OptionsOverrides = {
   }
 };
 
-export const getNextConfig = (config: NextConfig): EslintUserConfig => (fixupConfigRules({
+export const getNextConfig = (config: NextConfig): ESLintUserConfig => (fixupConfigRules({
   files: ['**/*.?([cm])[jt]s?(x)'],
   name: 'mkas3/next',
   plugins: {
-    next: nextPlugin as Plugin
+    next: nextPlugin as ESLint.Plugin
   },
   ...(config.settings ? { settings: { next: config.settings } } : undefined),
 

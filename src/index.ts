@@ -1,5 +1,5 @@
 import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config';
-import type { Linter } from 'eslint';
+import type { ESLint, Linter } from 'eslint';
 import type { Awaitable, FlatConfigComposer } from 'eslint-flat-config-utils';
 
 import type { NextConfig } from './next/next.type.js';
@@ -7,7 +7,6 @@ import type { TailwindConfig } from './tailwind/tailwind.type.js';
 
 import { antfu } from '@antfu/eslint-config';
 import { fixupPluginRules } from '@eslint/compat';
-import { ESLint } from 'eslint';
 // @ts-expect-error has no type
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
@@ -21,16 +20,14 @@ import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
 
-import Plugin = ESLint.Plugin;
-
-export type EslintUserConfig = Awaitable<(
+export type ESLintUserConfig = Awaitable<(
   | FlatConfigComposer<any, any>
   | Linter.Config[]
   | TypedFlatConfigItem
   | TypedFlatConfigItem[]
 )>;
 
-export type EslintConfig =
+export type ESLintConfig =
   (
     options: OptionsConfig & TypedFlatConfigItem & {
       exports?: boolean;
@@ -39,10 +36,10 @@ export type EslintConfig =
       next?: boolean | NextConfig;
       tailwind?: boolean | TailwindConfig;
     },
-    ...configs: EslintUserConfig[]
+    ...configs: ESLintUserConfig[]
   ) => FlatConfigComposer<TypedFlatConfigItem, ConfigNames>;
 
-export const eslint: EslintConfig = ({
+export const eslint: ESLintConfig = ({
   exports = true,
   imports = true,
   jsxA11y = true,
@@ -104,7 +101,7 @@ export const eslint: EslintConfig = ({
       ...config,
       plugins: {
         ...config.plugins,
-        'react-hooks': fixupPluginRules(reactHooksPlugin as Plugin)
+        'react-hooks': fixupPluginRules(reactHooksPlugin as ESLint.Plugin)
       }
     }));
   }

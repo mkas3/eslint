@@ -1,6 +1,6 @@
-import type { EslintUserConfig } from '../index.js';
+import type { ESLintUserConfig } from '../index.js';
 
-export const exportsUserConfig: EslintUserConfig = {
+export const exportsUserConfig: ESLintUserConfig = {
   name: 'mkas3/exports',
   rules: {
     'perfectionist/sort-exports': [

@@ -1,12 +1,12 @@
 import { antfu } from '@antfu/eslint-config';
 
-import { antfuUserConfig } from './configs/common/antfu.config.js';
-import { exportsUserConfig } from './configs/common/exports.config.js';
-import { importsUserConfig } from './configs/common/imports.config.js';
-import { stylisticConfig, stylisticUserConfig } from './configs/common/stylistic.config.js';
-import { typescriptConfig, typescriptUserConfig } from './configs/common/typescript.config.js';
-import { getNextConfig, nextConfig } from './configs/next/next.config.js';
-import { getTailwindConfig, tailwindConfig } from './configs/tailwind/tailwind.config.js';
+import { antfuUserConfig } from './src/common/antfu.config.js';
+import { exportsUserConfig } from './src/common/exports.config.js';
+import { importsUserConfig } from './src/common/imports.config.js';
+import { stylisticConfig, stylisticUserConfig } from './src/common/stylistic.config.js';
+import { typescriptConfig, typescriptUserConfig } from './src/common/typescript.config.js';
+import { getNextConfig, nextConfig } from './src/next/next.config.js';
+import { getTailwindConfig, tailwindConfig } from './src/tailwind/tailwind.config.js';
 
 export default antfu(
   {

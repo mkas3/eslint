@@ -1,8 +1,5 @@
 import type { TypedFlatConfigItem } from '@antfu/eslint-config';
-
-import { Linter } from 'eslint';
-
-import RuleEntry = Linter.RuleEntry;
+import type { Linter } from 'eslint';
 
 type DefaultRuleOptions = {
   callees: string[];
@@ -66,19 +63,19 @@ type SortClasses = ReadableRuleOptions<{
 }>;
 
 export type TailwindRules = {
-  'tailwind/classnames-order': RuleEntry<ClassnamesOrder>;
-  'tailwind/enforces-negative-arbitrary-values': RuleEntry<EnforcesNegativeArbitraryValues>;
-  'tailwind/enforces-shorthand': RuleEntry<EnforcesShorthand>;
-  'tailwind/migration-from-tailwind-2': RuleEntry<MigrationFromTailwind2>;
-  'tailwind/no-arbitrary-value': RuleEntry<NoArbitaryValue>;
-  'tailwind/no-contradicting-classname': RuleEntry<NoContradictingClassname>;
-  'tailwind/no-custom-classname': RuleEntry<NoCustomClassname>;
-  'tailwind/no-unnecessary-arbitrary-value': RuleEntry<NoUnnecessaryArbitraryValue>;
+  'tailwind/classnames-order': Linter.RuleEntry<ClassnamesOrder>;
+  'tailwind/enforces-negative-arbitrary-values': Linter.RuleEntry<EnforcesNegativeArbitraryValues>;
+  'tailwind/enforces-shorthand': Linter.RuleEntry<EnforcesShorthand>;
+  'tailwind/migration-from-tailwind-2': Linter.RuleEntry<MigrationFromTailwind2>;
+  'tailwind/no-arbitrary-value': Linter.RuleEntry<NoArbitaryValue>;
+  'tailwind/no-contradicting-classname': Linter.RuleEntry<NoContradictingClassname>;
+  'tailwind/no-custom-classname': Linter.RuleEntry<NoCustomClassname>;
+  'tailwind/no-unnecessary-arbitrary-value': Linter.RuleEntry<NoUnnecessaryArbitraryValue>;
 
-  'tailwind-readable:multiline': RuleEntry<Multiline>;
-  'tailwind-readable:no-duplicate-classes': RuleEntry<NoDuplicateClasses>;
-  'tailwind-readable:no-unnecessary-whitespace': RuleEntry<NoUnnecessaryWhitespace>;
-  'tailwind-readable:sort-classes': RuleEntry<SortClasses>;
+  'tailwind-readable:multiline': Linter.RuleEntry<Multiline>;
+  'tailwind-readable:no-duplicate-classes': Linter.RuleEntry<NoDuplicateClasses>;
+  'tailwind-readable:no-unnecessary-whitespace': Linter.RuleEntry<NoUnnecessaryWhitespace>;
+  'tailwind-readable:sort-classes': Linter.RuleEntry<SortClasses>;
 };
 
 export type TailwindSettings = {

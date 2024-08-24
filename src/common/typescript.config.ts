@@ -1,12 +1,12 @@
 import type { OptionsTypescript } from '@antfu/eslint-config';
 
-import type { EslintUserConfig } from '../index.js';
+import type { ESLintUserConfig } from '../index.js';
 
 export const typescriptConfig: OptionsTypescript = {
   tsconfigPath: 'tsconfig.json'
 };
 
-export const typescriptUserConfig: EslintUserConfig = {
+export const typescriptUserConfig: ESLintUserConfig = {
   files: ['**/*.?([cm])ts', '**/*.?([cm])tsx'],
   name: 'mkas3/typescript',
   rules: {
