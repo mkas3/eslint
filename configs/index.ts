@@ -11,7 +11,7 @@ import { antfuUserConfig } from './common/antfu.config.js';
 import { exportsUserConfig } from './common/exports.config.js';
 import { importsUserConfig } from './common/imports.config.js';
 import { reactUserConfig } from './common/react.config.js';
-import { stylisticUserConfig } from './common/stylistic.config.js';
+import { stylisticConfig, stylisticUserConfig } from './common/stylistic.config.js';
 import { typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
@@ -42,8 +42,10 @@ export const eslint: EslintConfig = ({
   exports = true,
   imports = true,
   jsxA11y = true,
+  lessOpinionated = true,
   next = false,
   reactBase = false,
+  stylistic = true,
   tailwind = false,
   ...options
 // eslint-disable-next-line ts/promise-function-async
@@ -84,7 +86,7 @@ export const eslint: EslintConfig = ({
     configs.unshift(getTailwindConfig(tailwind));
   }
 
-  if (options.stylistic) {
+  if (stylistic) {
     configs.unshift(stylisticUserConfig);
   }
 
@@ -96,5 +98,9 @@ export const eslint: EslintConfig = ({
     configs.unshift(typescriptUserConfig);
   }
 
-  return antfu(options, antfuUserConfig, ...configs);
+  return antfu({
+    ...options,
+    lessOpinionated,
+    stylistic: typeof stylistic !== 'object' ? (stylistic ? stylisticConfig : false) : stylistic
+  }, antfuUserConfig, ...configs);
 };

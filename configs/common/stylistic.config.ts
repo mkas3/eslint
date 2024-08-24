@@ -15,7 +15,6 @@ export const stylisticUserConfig: EslintUserConfig = {
     'style/arrow-parens': ['error', 'always'],
     'style/brace-style': ['error', '1tbs'],
     'style/comma-dangle': ['error', 'never'],
-    'style/indent': ['error', 2, { SwitchCase: 1 }],
     'style/jsx-quotes': ['error', 'prefer-single'],
     'style/quotes': ['error', 'single', { allowTemplateLiterals: true }],
 
