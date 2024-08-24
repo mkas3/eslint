@@ -29,6 +29,7 @@ export const reactBaseConfig: ReactBaseConfig = {
       'warn',
       {
         allow: 'as-needed',
+        extensions: ['.js', '.jsx', '.tsx'],
         ignoreFilesWithoutCode: true
       }
     ],
@@ -45,15 +46,7 @@ export const reactBaseConfig: ReactBaseConfig = {
     'react-base/jsx-no-leaked-render': ['warn', { validStrategies: ['ternary', 'coerce'] }],
     'react-base/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
     'react-base/jsx-props-no-spreading': 'off',
-    'react-base/jsx-sort-props': [
-      'warn',
-      {
-        callbacksLast: true,
-        multiline: 'first',
-        reservedFirst: ['key', 'ref'],
-        shorthandLast: true
-      }
-    ],
+    'react-base/jsx-sort-props': 'off',
     'react-base/no-array-index-key': 'warn',
     'react-base/no-danger': 'warn',
     'react-base/no-object-type-as-default-prop': 'warn',

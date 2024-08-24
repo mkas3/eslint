@@ -12,6 +12,8 @@ export const stylisticConfig: OptionsOverrides & OptionsStylistic['stylistic'] =
 export const stylisticUserConfig: EslintUserConfig = {
   name: 'mkas3/formatter',
   rules: {
+    'curly': 'off',
+
     'style/arrow-parens': ['error', 'always'],
     'style/brace-style': ['error', '1tbs'],
     'style/comma-dangle': ['error', 'never'],
