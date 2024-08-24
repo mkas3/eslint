@@ -11,7 +11,7 @@ import { antfuUserConfig } from './common/antfu.config.js';
 import { exportsUserConfig } from './common/exports.config.js';
 import { importsUserConfig } from './common/imports.config.js';
 import { reactUserConfig } from './common/react.config.js';
-import { stylisticUserConfig } from './common/stylistic.config.js';
+import { stylisticConfig, stylisticUserConfig } from './common/stylistic.config.js';
 import { typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
@@ -48,7 +48,7 @@ export const eslint: EslintConfig = ({
   ...options
 // eslint-disable-next-line ts/promise-function-async
 }, ...configs) => {
-  const stylistic = options.stylistic ?? false;
+  const stylistic = typeof options.stylistic === 'boolean' ? stylisticConfig : (options.stylistic ?? false);
 
   if (stylistic) {
     configs.unshift(stylisticUserConfig);
