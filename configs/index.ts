@@ -15,7 +15,6 @@ import { stylisticConfig, stylisticUserConfig } from './common/stylistic.config.
 import { typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
-import { getReactBaseConfig, reactBaseConfig } from './react-base/react-base.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
 
 export type EslintUserConfig = Awaitable<(
@@ -32,7 +31,6 @@ export type EslintConfig =
       imports?: boolean;
       jsxA11y?: boolean;
       next?: boolean | NextConfig;
-      reactBase?: boolean;
       tailwind?: boolean | TailwindConfig;
     },
     ...configs: EslintUserConfig[]
@@ -44,7 +42,6 @@ export const eslint: EslintConfig = ({
   jsxA11y = true,
   lessOpinionated = true,
   next = false,
-  reactBase = false,
   stylistic = true,
   tailwind = false,
   ...options
@@ -60,14 +57,6 @@ export const eslint: EslintConfig = ({
 
   if (jsxA11y) {
     configs.unshift(jsxA11yUserConfig);
-  }
-
-  if (typeof reactBase !== 'object') {
-    if (reactBase) {
-      configs.unshift(getReactBaseConfig(reactBaseConfig));
-    }
-  } else {
-    configs.unshift(getReactBaseConfig(reactBase));
   }
 
   if (typeof next !== 'object') {
