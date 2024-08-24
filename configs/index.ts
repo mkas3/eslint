@@ -6,6 +6,10 @@ import type { NextConfig } from './next/next.type.js';
 import type { TailwindConfig } from './tailwind/tailwind.type.js';
 
 import { antfu } from '@antfu/eslint-config';
+import { fixupPluginRules } from '@eslint/compat';
+import { ESLint } from 'eslint';
+// @ts-expect-error has no type
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
 import { antfuUserConfig } from './common/antfu.config.js';
 import { exportsUserConfig } from './common/exports.config.js';
@@ -16,6 +20,8 @@ import { typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
+
+import Plugin = ESLint.Plugin;
 
 export type EslintUserConfig = Awaitable<(
   | FlatConfigComposer<any, any>
@@ -91,5 +97,12 @@ export const eslint: EslintConfig = ({
     ...options,
     lessOpinionated,
     stylistic: typeof stylistic !== 'object' ? (stylistic ? stylisticConfig : false) : stylistic
-  }, antfuUserConfig, ...configs);
+  }, antfuUserConfig, ...configs)
+    .override('antfu/react/setup', (config) => ({
+      ...config,
+      plugins: {
+        ...config.plugins,
+        'react-hooks': fixupPluginRules(reactHooksPlugin as Plugin)
+      }
+    }));
 };
