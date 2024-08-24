@@ -1,7 +1,7 @@
 {
   "name": "@mkas3/eslint",
   "type": "module",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Eslint configs",
   "author": {
     "name": "mkas3 📛",
