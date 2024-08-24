@@ -93,16 +93,21 @@ export const eslint: EslintConfig = ({
     configs.unshift(typescriptUserConfig);
   }
 
-  return antfu({
+  let result = antfu({
     ...options,
     lessOpinionated,
     stylistic: typeof stylistic !== 'object' ? (stylistic ? stylisticConfig : false) : stylistic
-  }, antfuUserConfig, ...configs)
-    .override('antfu/react/setup', (config) => ({
+  }, antfuUserConfig, ...configs);
+
+  if (options.react) {
+    result = result.override('antfu/react/setup', (config) => ({
       ...config,
       plugins: {
         ...config.plugins,
         'react-hooks': fixupPluginRules(reactHooksPlugin as Plugin)
       }
     }));
+  }
+
+  return result;
 };
