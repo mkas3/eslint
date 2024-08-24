@@ -15,7 +15,7 @@ import { stylisticUserConfig } from './common/stylistic.config.js';
 import { typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
-import { reactBaseConfig } from './react-base/react-base.config.js';
+import { getReactBaseConfig, reactBaseConfig } from './react-base/react-base.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
 
 export type EslintUserConfig = Awaitable<(
@@ -68,10 +68,10 @@ export const eslint: EslintConfig = ({
 
   if (typeof reactBase !== 'object') {
     if (reactBase) {
-      configs.unshift(getNextConfig(reactBaseConfig));
+      configs.unshift(getReactBaseConfig(reactBaseConfig));
     }
   } else {
-    configs.unshift(getNextConfig(reactBase));
+    configs.unshift(getReactBaseConfig(reactBase));
   }
 
   if (typeof next !== 'object') {
