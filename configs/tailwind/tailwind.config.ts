@@ -14,7 +14,7 @@ export const tailwindConfig: TailwindConfig = {
     'tailwind/no-custom-classname': 'warn',
     'tailwind/no-unnecessary-arbitrary-value': 'warn',
 
-    'tailwind-readable/multiline': 'warn',
+    'tailwind-readable/multiline': ['warn', { classesPerLine: 0, group: 'newLine', lineBreakStyle: 'windows', printWidth: 120 }],
     'tailwind-readable/no-duplicate-classes': 'warn',
     'tailwind-readable/no-unnecessary-whitespace': 'warn',
     'tailwind-readable/sort-classes': 'warn'
