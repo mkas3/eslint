@@ -1,7 +1,7 @@
 {
   "name": "@mkas3/eslint",
   "type": "module",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "packageManager": "pnpm@9.8.0",
   "description": "mkas3`s ESLint config",
   "author": {
