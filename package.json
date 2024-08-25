@@ -64,8 +64,14 @@
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "eslint": "9"
+      }
+    }
+  },
   "resolutions": {
-    "@typescript-eslint/utils": "^8.2.0",
     "eslint": "^9.9.0"
   },
   "simple-git-hooks": {
