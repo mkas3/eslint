@@ -37,9 +37,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "shx rm -rf ./dist && tsup --format esm,cjs --clean --dts",
+    "build": "shx rm -rf ./dist && tsup && shx rm -rf dist/index.d.cts",
     "dev": "npx @eslint/config-inspector@latest --config eslint.config.ts",
-    "lint-staged": "lint-staged",
     "release": "pnpm build && bumpp && pnpm publish",
     "prepare": "simple-git-hooks"
   },
