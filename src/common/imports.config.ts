@@ -6,6 +6,9 @@ export const importsUserConfig: ESLintUserConfig = {
     'import/order': 'off',
     'sort-imports': 'off',
 
+    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-vars': 'warn',
+
     'perfectionist/sort-imports': [
       'error',
       {
