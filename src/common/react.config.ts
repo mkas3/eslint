@@ -9,11 +9,10 @@ export const reactUserConfig: ESLintUserConfig = {
     'react/no-missing-component-display-name': 'warn',
     'react/no-prop-types': 'error',
 
-    'react-hooks-extra/ensure-custom-hooks-using-other-hooks': 'warn',
-    'react-hooks-extra/ensure-use-callback-has-non-empty-deps': 'warn',
-    'react-hooks-extra/ensure-use-memo-has-non-empty-deps': 'warn',
     'react-hooks-extra/no-direct-set-state-in-use-effect': 'warn',
-    'react-hooks-extra/no-direct-set-state-in-use-layout-effect': 'warn',
+    'react-hooks-extra/no-redundant-custom-hook': 'warn',
+    'react-hooks-extra/no-unnecessary-use-callback': 'warn',
+    'react-hooks-extra/no-unnecessary-use-memo': 'warn',
     'react-hooks-extra/prefer-use-state-lazy-initialization': 'warn',
 
     'react-naming-convention/component-name': ['warn', 'PascalCase'],
