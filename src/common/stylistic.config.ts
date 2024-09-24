@@ -102,6 +102,7 @@ export const stylisticUserConfig: ESLintUserConfig = {
     //     type: 'alphabetical'
     //   }
     // ],
+    'perfectionist/sort-object-types': 'off',
 
     // 'perfectionist/sort-objects': [
     //   'error',
@@ -125,6 +126,7 @@ export const stylisticUserConfig: ESLintUserConfig = {
     //     type: 'alphabetical'
     //   }
     // ],
+    'perfectionist/sort-objects': 'off',
     'sort-keys': 'off',
 
     'perfectionist/sort-union-types': [
