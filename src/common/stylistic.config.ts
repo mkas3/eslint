@@ -85,46 +85,46 @@ export const stylisticUserConfig: ESLintUserConfig = {
     ],
     'style/jsx-sort-props': 'off',
 
-    'perfectionist/sort-object-types': [
-      'error',
-      {
-        customGroups: {
-          id: 'id',
-          className: '*ClassName',
-          boolean: 'is*',
-          callback: 'on*'
-        },
-        groupKind: 'required-first',
-        groups: ['id', 'boolean', 'className', 'unknown', 'callback'],
-        ignoreCase: true,
-        order: 'asc',
-        partitionByNewLine: true,
-        type: 'alphabetical'
-      }
-    ],
+    // 'perfectionist/sort-object-types': [
+    //   'error',
+    //   {
+    //     customGroups: {
+    //       id: 'id',
+    //       className: '*ClassName',
+    //       boolean: 'is*',
+    //       callback: 'on*'
+    //     },
+    //     groupKind: 'required-first',
+    //     groups: ['id', 'boolean', 'className', 'unknown', 'callback'],
+    //     ignoreCase: true,
+    //     order: 'asc',
+    //     partitionByNewLine: true,
+    //     type: 'alphabetical'
+    //   }
+    // ],
 
-    'perfectionist/sort-objects': [
-      'error',
-      {
-        customGroups: {
-          key: 'key',
-          id: 'id',
-          className: 'className',
-          otherClassName: '*ClassName',
-          callback: 'on*',
-          children: 'children'
-        },
-        destructureOnly: false,
-        groups: ['key', 'id', 'className', 'otherClassName', 'unknown', 'children', 'callback'],
-        ignoreCase: true,
-        ignorePattern: [],
-        order: 'asc',
-        partitionByComment: false,
-        partitionByNewLine: true,
-        styledComponents: true,
-        type: 'alphabetical'
-      }
-    ],
+    // 'perfectionist/sort-objects': [
+    //   'error',
+    //   {
+    //     customGroups: {
+    //       key: 'key',
+    //       id: 'id',
+    //       className: 'className',
+    //       otherClassName: '*ClassName',
+    //       callback: 'on*',
+    //       children: 'children'
+    //     },
+    //     destructureOnly: false,
+    //     groups: ['key', 'id', 'className', 'otherClassName', 'unknown', 'children', 'callback'],
+    //     ignoreCase: true,
+    //     ignorePattern: [],
+    //     order: 'asc',
+    //     partitionByComment: false,
+    //     partitionByNewLine: true,
+    //     styledComponents: true,
+    //     type: 'alphabetical'
+    //   }
+    // ],
     'sort-keys': 'off',
 
     'perfectionist/sort-union-types': [
