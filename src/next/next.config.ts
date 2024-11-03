@@ -5,13 +5,12 @@ import type { ESLintUserConfig } from '../index.js';
 
 import type { NextConfig } from './next.type.js';
 
-import { fixupConfigRules } from '@eslint/compat';
 // @ts-expect-error has no type
 import nextPlugin from '@next/eslint-plugin-next';
 
 export const nextConfig: OptionsOverrides = {
   overrides: {
-    // eslint-disable-next-line ts/no-unsafe-member-access,ts/no-unsafe-argument
+    // eslint-disable-next-line ts/no-unsafe-argument, ts/no-unsafe-member-access
     ...Object.entries({ ...nextPlugin.configs.recommended.rules, ...nextPlugin.configs['core-web-vitals'].rules }).reduce(
       (acc, [key, value]) => {
         // @ts-expect-error has value
@@ -23,15 +22,16 @@ export const nextConfig: OptionsOverrides = {
   }
 };
 
-export const getNextConfig = (config: NextConfig): ESLintUserConfig => (fixupConfigRules({
+export const getNextConfig = (config: NextConfig): ESLintUserConfig => ({
   files: ['**/*.?([cm])[jt]s?(x)'],
   name: 'mkas3/next',
   plugins: {
     next: nextPlugin as ESLint.Plugin
   },
+
   ...(config.settings ? { settings: { next: config.settings } } : undefined),
 
   rules: {
     ...config.overrides
   }
-}));
+});

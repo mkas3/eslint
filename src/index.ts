@@ -1,12 +1,11 @@
 import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config';
-import type { ESLint, Linter } from 'eslint';
+import type { Linter } from 'eslint';
 import type { Awaitable, FlatConfigComposer } from 'eslint-flat-config-utils';
 
 import type { NextConfig } from './next/next.type.js';
 import type { TailwindConfig } from './tailwind/tailwind.type.js';
 
 import { antfu } from '@antfu/eslint-config';
-import { fixupPluginRules } from '@eslint/compat';
 // @ts-expect-error has no type
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
@@ -101,7 +100,8 @@ export const eslint: ESLintConfig = ({
       ...config,
       plugins: {
         ...config.plugins,
-        'react-hooks': fixupPluginRules(reactHooksPlugin as ESLint.Plugin)
+        // eslint-disable-next-line ts/no-unsafe-assignment
+        'react-hooks': reactHooksPlugin
       }
     }));
   }

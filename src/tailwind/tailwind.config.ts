@@ -2,7 +2,7 @@ import type { ESLintUserConfig } from '../index.js';
 
 import type { TailwindConfig } from './tailwind.type.js';
 
-import { tailwindPlugin } from './tailwind.plugin.js';
+import tailwind from 'eslint-plugin-tailwindcss';
 
 export const tailwindConfig: TailwindConfig = {
   overrides: {
@@ -27,9 +27,11 @@ export const getTailwindConfig = (config: TailwindConfig): ESLintUserConfig => (
   files: ['**/*.?([cm])[jt]s?(x)'],
   name: 'mkas3/tailwind',
   plugins: {
-    tailwind: tailwindPlugin
+    tailwind: tailwind.configs['flat/recommended'][0].plugins?.tailwindcss
   },
+
   rules: config.overrides,
+
   ...(config.settings ? { settings: { tailwind: config.settings } } : undefined),
 
   languageOptions: {
