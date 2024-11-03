@@ -1,7 +1,7 @@
 {
   "name": "@mkas3/eslint",
   "type": "module",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "packageManager": "bun@1.1.33",
   "description": "mkas3`s ESLint config",
   "author": {
@@ -42,7 +42,7 @@
     "dev": "eslint --inspect-config --config eslint.config.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --flag unstable_ts_config",
-    "release": "bun build && bumpp && bun publish",
+    "release": "bun run build && bumpp && bun publish",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
