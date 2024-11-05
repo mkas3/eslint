@@ -3,7 +3,13 @@ import type { OptionsTypescript } from '@antfu/eslint-config';
 import type { ESLintUserConfig } from '../index.js';
 
 export const typescriptConfig: OptionsTypescript = {
-  tsconfigPath: 'tsconfig.json'
+  tsconfigPath: 'tsconfig.json',
+  filesTypeAware: ['**/*.?([cm])ts', '**/*.?([cm])tsx'],
+  parserOptions: {
+    project: ['./tsconfig.json'],
+    // eslint-disable-next-line node/prefer-global/process
+    tsconfigRootDir: process.cwd()
+  }
 };
 
 export const typescriptUserConfig: ESLintUserConfig = {

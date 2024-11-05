@@ -10,6 +10,7 @@ import { antfu } from '@antfu/eslint-config';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
 import { antfuUserConfig } from './common/antfu.config.js';
+import { commonUserConfig } from './common/common.config.js';
 import { exportsUserConfig } from './common/exports.config.js';
 import { importsUserConfig } from './common/imports.config.js';
 import { reactUserConfig } from './common/react.config.js';
@@ -43,12 +44,15 @@ export type ESLintConfig =
 export const eslint: ESLintConfig = ({
   exports = true,
   imports = true,
+  jsonc = true,
   jsxA11y = true,
   lessOpinionated = true,
-  next = false,
+  next = true,
+  react = true,
   stylistic = true,
-  tailwind = false,
+  tailwind = true,
   reactCompiler = true,
+  typescript = true,
   ...options
 // eslint-disable-next-line ts/promise-function-async
 }, ...configs) => {
@@ -84,11 +88,11 @@ export const eslint: ESLintConfig = ({
     configs.unshift(stylisticUserConfig);
   }
 
-  if (options.react) {
+  if (react) {
     configs.unshift(reactUserConfig);
   }
 
-  if (options.typescript) {
+  if (typescript) {
     configs.unshift(typescriptUserConfig);
   }
 
@@ -100,11 +104,12 @@ export const eslint: ESLintConfig = ({
 
   let result = antfu({
     ...options,
+    jsonc,
     lessOpinionated,
     stylistic: typeof stylistic !== 'object' ? (stylistic ? stylisticConfig : false) : stylistic
   }, antfuUserConfig, ...configs);
 
-  if (options.react) {
+  if (react) {
     result = result.override('antfu/react/setup', (config) => ({
       ...config,
       plugins: {

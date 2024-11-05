@@ -17,6 +17,8 @@ export const reactUserConfig: ESLintUserConfig = {
 
     'react-naming-convention/component-name': ['warn', 'PascalCase'],
     'react-naming-convention/filename': ['warn', 'kebab-case'],
-    'react-naming-convention/use-state': 'warn'
+    'react-naming-convention/use-state': 'warn',
+
+    'react-refresh/only-export-components': 'off'
   }
 };
