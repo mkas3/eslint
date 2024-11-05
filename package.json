@@ -1,7 +1,7 @@
 {
   "name": "@mkas3/eslint",
   "type": "module",
-  "version": "3.6.2",
+  "version": "3.6.3",
   "packageManager": "bun@1.1.33",
   "description": "mkas3`s ESLint config",
   "author": {
