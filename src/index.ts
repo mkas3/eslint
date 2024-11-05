@@ -15,7 +15,7 @@ import { exportsUserConfig } from './common/exports.config.js';
 import { importsUserConfig } from './common/imports.config.js';
 import { reactUserConfig } from './common/react.config.js';
 import { stylisticConfig, stylisticUserConfig } from './common/stylistic.config.js';
-import { typescriptUserConfig } from './common/typescript.config.js';
+import { typescriptConfig, typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
 import { reactCompilerUserConfig } from './react-compiler/react-compiler.config.js';
@@ -54,7 +54,6 @@ export const eslint: ESLintConfig = ({
   reactCompiler = true,
   typescript = true,
   ...options
-// eslint-disable-next-line ts/promise-function-async
 }, ...configs) => {
   if (imports) {
     configs.unshift(importsUserConfig);
@@ -106,7 +105,7 @@ export const eslint: ESLintConfig = ({
     ...options,
     jsonc,
     react,
-    typescript,
+    typescript: typeof typescript !== 'object' ? (typescript ? typescriptConfig : false) : typescript,
     lessOpinionated,
     stylistic: typeof stylistic !== 'object' ? (stylistic ? stylisticConfig : false) : stylistic
   }, antfuUserConfig, ...configs);
@@ -116,7 +115,6 @@ export const eslint: ESLintConfig = ({
       ...config,
       plugins: {
         ...config.plugins,
-        // eslint-disable-next-line ts/no-unsafe-assignment
         'react-hooks': reactHooksPlugin
       }
     }));

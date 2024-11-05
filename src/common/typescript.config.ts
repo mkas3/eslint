@@ -4,7 +4,7 @@ import type { ESLintUserConfig } from '../index.js';
 
 export const typescriptConfig: OptionsTypescript = {
   tsconfigPath: 'tsconfig.json',
-  filesTypeAware: ['**/*.?([cm])ts', '**/*.?([cm])tsx'],
+  filesTypeAware: [''],
   parserOptions: {
     project: ['./tsconfig.json'],
     // eslint-disable-next-line node/prefer-global/process

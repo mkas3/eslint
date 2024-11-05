@@ -10,7 +10,6 @@ import nextPlugin from '@next/eslint-plugin-next';
 
 export const nextConfig: OptionsOverrides = {
   overrides: {
-    // eslint-disable-next-line ts/no-unsafe-argument, ts/no-unsafe-member-access
     ...Object.entries({ ...nextPlugin.configs.recommended.rules, ...nextPlugin.configs['core-web-vitals'].rules }).reduce(
       (acc, [key, value]) => {
         // @ts-expect-error has value

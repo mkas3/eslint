@@ -10,6 +10,5 @@ export const jsxA11yUserConfig: ESLintUserConfig = {
   plugins: {
     'jsx-a11y': pluginJsxA11y as ESLint.Plugin
   },
-  // eslint-disable-next-line ts/no-unsafe-member-access,ts/no-unsafe-assignment
   rules: pluginJsxA11y.flatConfigs.recommended.rules
 };
