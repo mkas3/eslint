@@ -105,6 +105,8 @@ export const eslint: ESLintConfig = ({
   let result = antfu({
     ...options,
     jsonc,
+    react,
+    typescript,
     lessOpinionated,
     stylistic: typeof stylistic !== 'object' ? (stylistic ? stylisticConfig : false) : stylistic
   }, antfuUserConfig, ...configs);
