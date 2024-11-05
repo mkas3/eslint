@@ -7,6 +7,7 @@ import { stylisticConfig, stylisticUserConfig } from './src/common/stylistic.con
 import { typescriptConfig, typescriptUserConfig } from './src/common/typescript.config.js';
 import { getNextConfig, nextConfig } from './src/next/next.config.js';
 import { getTailwindConfig, tailwindConfig } from './src/tailwind/tailwind.config.js';
+import { reactCompilerUserConfig } from './src/react-compiler/react-compiler.config.js';
 
 export default antfu(
   {
@@ -21,5 +22,6 @@ export default antfu(
   typescriptUserConfig,
   getNextConfig(nextConfig),
   getTailwindConfig(tailwindConfig),
+  reactCompilerUserConfig,
   antfuUserConfig
 );

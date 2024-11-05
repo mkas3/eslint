@@ -17,6 +17,7 @@ import { stylisticConfig, stylisticUserConfig } from './common/stylistic.config.
 import { typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getNextConfig, nextConfig } from './next/next.config.js';
+import { reactCompilerUserConfig } from './react-compiler/react-compiler.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
 
 export type ESLintUserConfig = Awaitable<(
@@ -34,6 +35,7 @@ export type ESLintConfig =
       jsxA11y?: boolean;
       next?: boolean | NextConfig;
       tailwind?: boolean | TailwindConfig;
+      reactCompiler?: boolean;
     },
     ...configs: ESLintUserConfig[]
   ) => FlatConfigComposer<TypedFlatConfigItem, ConfigNames>;
@@ -46,6 +48,7 @@ export const eslint: ESLintConfig = ({
   next = false,
   stylistic = true,
   tailwind = false,
+  reactCompiler = true,
   ...options
 // eslint-disable-next-line ts/promise-function-async
 }, ...configs) => {
@@ -88,6 +91,12 @@ export const eslint: ESLintConfig = ({
   if (options.typescript) {
     configs.unshift(typescriptUserConfig);
   }
+
+  if (reactCompiler) {
+    configs.unshift(reactCompilerUserConfig);
+  }
+
+  configs.unshift(commonUserConfig);
 
   let result = antfu({
     ...options,
