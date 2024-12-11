@@ -64,7 +64,7 @@ export const stylisticUserConfig: ESLintUserConfig = {
         customGroups: {
           key: 'key',
           className: 'className',
-          otherClassName: '*ClassName',
+          otherClassName: '.+ClassName',
           callback: 'on*',
           ref: 'ref'
         },
