@@ -1,24 +1,27 @@
+import type { NextConfig } from './next/next.type.js';
+
 import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config';
 import type { Linter } from 'eslint';
 import type { Awaitable, FlatConfigComposer } from 'eslint-flat-config-utils';
 
-import type { NextConfig } from './next/next.type.js';
 import type { TailwindConfig } from './tailwind/tailwind.type.js';
 
-import { antfu } from '@antfu/eslint-config';
+import { reactUserConfig } from './common/react.config.js';
+import { reactCompilerUserConfig } from './react-compiler/react-compiler.config.js';
 // @ts-expect-error has no type
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+
+import { getNextConfig, nextConfig } from './next/next.config.js';
+
+import { antfu } from '@antfu/eslint-config';
 
 import { antfuUserConfig } from './common/antfu.config.js';
 import { commonUserConfig } from './common/common.config.js';
 import { exportsUserConfig } from './common/exports.config.js';
 import { importsUserConfig } from './common/imports.config.js';
-import { reactUserConfig } from './common/react.config.js';
 import { stylisticConfig, stylisticUserConfig } from './common/stylistic.config.js';
 import { typescriptConfig, typescriptUserConfig } from './common/typescript.config.js';
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
-import { getNextConfig, nextConfig } from './next/next.config.js';
-import { reactCompilerUserConfig } from './react-compiler/react-compiler.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
 
 export type ESLintUserConfig = Awaitable<(

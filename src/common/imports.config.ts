@@ -51,7 +51,7 @@ export const importsUserConfig: ESLintUserConfig = {
           'unknown'
         ],
         ignoreCase: true,
-        internalPattern: ['~/**'],
+        internalPattern: ['^~/.+'],
         maxLineLength: undefined,
         newlinesBetween: 'always',
         order: 'asc',

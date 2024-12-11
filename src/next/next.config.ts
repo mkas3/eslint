@@ -1,9 +1,9 @@
+import type { NextConfig } from './next.type.js';
+
 import type { OptionsOverrides } from '@antfu/eslint-config';
 import type { ESLint } from 'eslint';
 
 import type { ESLintUserConfig } from '../index.js';
-
-import type { NextConfig } from './next.type.js';
 
 // @ts-expect-error has no type
 import nextPlugin from '@next/eslint-plugin-next';
