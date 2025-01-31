@@ -1,8 +1,8 @@
 import type { NextConfig } from './next/next.type.js';
 
-import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config';
+import type { Awaitable, ConfigNames, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config';
 import type { Linter } from 'eslint';
-import type { Awaitable, FlatConfigComposer } from 'eslint-flat-config-utils';
+import type { FlatConfigComposer } from 'eslint-flat-config-utils';
 
 import type { TailwindConfig } from './tailwind/tailwind.type.js';
 
@@ -24,16 +24,16 @@ import { typescriptConfig, typescriptUserConfig } from './common/typescript.conf
 import { jsxA11yUserConfig } from './jsx-a11y/jsx-a11y.config.js';
 import { getTailwindConfig, tailwindConfig } from './tailwind/tailwind.config.js';
 
-export type ESLintUserConfig = Awaitable<(
+export type ESLintUserConfig = Awaitable<
   | FlatConfigComposer<any, any>
   | Linter.Config[]
   | TypedFlatConfigItem
   | TypedFlatConfigItem[]
-)>;
+>;
 
 export type ESLintConfig =
   (
-    options: OptionsConfig & TypedFlatConfigItem & {
+    options: Omit<TypedFlatConfigItem, 'files'> & OptionsConfig & {
       exports?: boolean;
       imports?: boolean;
       jsxA11y?: boolean;

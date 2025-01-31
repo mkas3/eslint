@@ -41,32 +41,32 @@
     "build": "shx rm -rf ./dist && tsup && shx rm -rf dist/index.d.cts",
     "dev": "eslint --inspect-config --config eslint.config.ts",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --flag unstable_ts_config",
+    "lint": "eslint .",
     "release": "bun run build && bumpp && bun publish",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^3.11.2",
-    "@eslint-react/eslint-plugin": "^1.19.0",
-    "@next/eslint-plugin-next": "^15.1.0",
+    "@antfu/eslint-config": "^4.1.0",
+    "@eslint-react/eslint-plugin": "^1.26.0",
+    "@next/eslint-plugin-next": "^15.1.6",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
-    "eslint": "^9.16.0",
-    "eslint-flat-config-utils": "^0.4.0",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-react-compiler": "^19.0.0-beta-63b359f-20241101",
+    "eslint": "^9.19.0",
+    "eslint-flat-config-utils": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-e552027-20250112",
     "eslint-plugin-react-hooks": "5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.16",
-    "eslint-plugin-tailwindcss": "^3.17.5"
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "eslint-plugin-tailwindcss": "^3.18.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.14",
-    "bumpp": "^9.9.0",
-    "jiti": "^2.4.1",
-    "lint-staged": "^15.2.11",
+    "@types/bun": "^1.2.1",
+    "bumpp": "^10.0.1",
+    "jiti": "^2.4.2",
+    "lint-staged": "^15.4.3",
     "shx": "^0.3.4",
     "simple-git-hooks": "^2.11.1",
-    "tsup": "^8.2.4",
-    "typescript": "^5.7.2"
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
   "simple-git-hooks": {
     "pre-commit": "bun run lint-staged",

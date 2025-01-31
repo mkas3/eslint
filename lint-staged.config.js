@@ -1,4 +1,4 @@
 export default {
-  '*': ['eslint --config eslint.config.ts --flag unstable_ts_config'],
+  '*': ['eslint --config eslint.config.ts'],
   '**/*.ts?(x)': () => 'bun typecheck'
 };
